@@ -22,7 +22,7 @@ func top(m map[int]int) []int {
 }
 
 func main() {
-	file, _ := os.Open("inputs/elfs.txt")
+	file, _ := os.Open("01/elfs.txt")
 
 	scanner := bufio.NewScanner(file)
 
