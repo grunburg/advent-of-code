@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func main() {
+func getSolutionOne() {
 	file, err := os.Open("02/input.txt")
 	if err != nil {
 		panic(err)

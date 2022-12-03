@@ -21,8 +21,8 @@ func top(m map[int]int) []int {
 	return values
 }
 
-func main() {
-	file, _ := os.Open("01/elfs.txt")
+func getSolution() {
+	file, _ := os.Open("01/input.txt")
 
 	scanner := bufio.NewScanner(file)
 
