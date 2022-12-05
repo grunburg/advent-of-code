@@ -30,7 +30,7 @@ func two() {
 	}
 
 	// Solution
-	stack(stacks)
+	out(stacks)
 }
 
 func reverse(array []any) []any {

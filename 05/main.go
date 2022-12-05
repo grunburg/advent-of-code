@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"sort"
 	"strconv"
 )
 
@@ -79,12 +80,26 @@ func build(raw map[int][]string) map[int]*list.List {
 	return stacks
 }
 
-func stack(stacks map[int]*list.List) {
-	for index, stack := range stacks {
-		fmt.Printf("%d ", index)
-		for e := stack.Back(); e != nil; e = e.Prev() {
-			fmt.Printf("%s ", e.Value)
+func out(stacks map[int]*list.List) {
+	keys := make([]int, len(stacks))
+	i := 0
+	for k := range stacks {
+		keys[i] = k
+		i++
+	}
+
+	sort.Ints(keys)
+
+	var result []any
+
+	for _, key := range keys {
+		fmt.Printf("%d ", key)
+		for e := stacks[key].Back(); e != nil; e = e.Prev() {
+			fmt.Printf("[%s]", e.Value)
 		}
+		result = append(result, stacks[key].Front().Value)
 		fmt.Println()
 	}
+
+	fmt.Printf("Result: %s\n", result)
 }

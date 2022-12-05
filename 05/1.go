@@ -28,5 +28,5 @@ func one() {
 	}
 
 	// Solution
-	stack(stacks)
+	out(stacks)
 }
