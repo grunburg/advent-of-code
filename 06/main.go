@@ -9,21 +9,21 @@ import (
 var input string
 
 func main() {
-	solve(input, 4)
-	solve(input, 14)
+	getResult(input, 4)
+	getResult(input, 14)
 }
 
-func solve(input string, receiver int) {
+func getResult(input string, receiver int) {
 	for i := 0; i < len(input)-receiver; i++ {
 		part := input[i : i+receiver]
-		if isAllDifferent(part) {
-			fmt.Println(part, i+receiver)
+		if isPartDifferent(part) {
+			out(part, i+receiver)
 			return
 		}
 	}
 }
 
-func isAllDifferent(part string) bool {
+func isPartDifferent(part string) bool {
 	seen := make(map[rune]bool)
 
 	for _, char := range part {
@@ -34,4 +34,8 @@ func isAllDifferent(part string) bool {
 	}
 
 	return true
+}
+
+func out(part string, count int) {
+	fmt.Printf("Part: %s, Count: %d\n", part, count)
 }
